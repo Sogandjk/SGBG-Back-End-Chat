@@ -1,0 +1,14 @@
+{
+  "name": "sgbg-chat-backend",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "San Gabriel Beverage Group ChatGPT relay",
+  "dependencies": {
+    "express": "^4.19.1",
+    "cors": "^2.8.5",
+    "openai": "^4.19.1"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
