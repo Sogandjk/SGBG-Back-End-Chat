@@ -1,14 +1,18 @@
 {
-  "name": "sgbg-chat-backend",
-  "type": "module",
+  "name": "sgbg-back-end-chat",
   "version": "1.0.0",
-  "description": "San Gabriel Beverage Group ChatGPT relay",
+  "description": "San Gabriel Beverage Group Chat relay for Duda widget",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
   "dependencies": {
     "express": "^4.19.1",
     "cors": "^2.8.5",
     "openai": "^4.19.1"
-  },
-  "scripts": {
-    "start": "node index.js"
   }
 }
