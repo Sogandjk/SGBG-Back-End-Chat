@@ -11,13 +11,21 @@ app.use(cors({ origin: "*" }));
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
+// TEMP: prove which key the server is using (only prints first 7 chars + length)
+console.log(
+  "Using OPENAI_API_KEY prefix:",
+  (process.env.OPENAI_API_KEY || "").slice(0, 7),
+  "… length:",
+  (process.env.OPENAI_API_KEY || "").length
+);
+
 app.post("/chat", async (req, res) => {
   const { message } = req.body;
   if (!message) return res.status(400).json({ error: "No message" });
 
   try {
     const completion = await openai.chat.completions.create({
-      model: "gpt-4o-mini",                // if permission error, try "gpt-3.5-turbo"
+      model: "gpt-4o-mini", // if permission error, try "gpt-3.5-turbo"
       messages: [
         {
           role: "system",
@@ -44,3 +52,4 @@ app.post("/chat", async (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Chat server listening on ${PORT}`));
+
